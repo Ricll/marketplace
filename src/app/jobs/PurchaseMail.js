@@ -1,3 +1,5 @@
+// Configuração com dados para envio de email
+
 const Mail = require('../services/Mail')
 
 class PurchaseMail {
