@@ -1,11 +1,11 @@
 // Configuração de envio do email
 
 module.exports = {
-  host: 'smtp.mailtrap.io',
-  port: 2525,
+  host: process.env.MAIL_HOST,
+  port: process.env.MAIL_PORT,
   secure: false,
   auth: {
-    user: 'ccada0c207e872',
-    pass: '1c7bec5fea9d64'
+    user: process.env.MAIL_USER,
+    pass: process.env.MAIL_PASS
   }
 }

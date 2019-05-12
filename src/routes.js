@@ -12,7 +12,7 @@ const validators = require('./app/validators')
 routes.post(
   '/users',
   validate(validators.User),
-  controllers.UserController.store
+  handle(controllers.UserController.store)
 )
 routes.post(
   '/sessions',
@@ -22,6 +22,9 @@ routes.post(
 
 routes.use(authMiddleware)
 
+/**
+ * Ads
+ */
 routes.get('/ads', handle(controllers.AdController.index))
 routes.get('/ads/:id', handle(controllers.AdController.show))
 routes.post(
@@ -36,17 +39,15 @@ routes.put(
 )
 routes.delete('/ads/:id', handle(controllers.AdController.destroy))
 
-// Purchase
-
+/**
+ * Purchases
+ */
 routes.post(
   '/purchases',
   validate(validators.Purchase),
   handle(controllers.PurchaseController.store)
 )
 
-module.exports = routes
+routes.put('/purchases/:id', handle(controllers.ApproveController.update))
 
-// routes.get('/teste', authMiddleware, (req, res) => {
-//  res.json({ ok: true })
-// }) ---> Apenas para testes
-// routes.use(authMiddleware) ---> Abaixo desta rota todos usam Ads
+module.exports = routes

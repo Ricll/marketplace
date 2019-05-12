@@ -1,6 +1,5 @@
 module.exports = {
-  uri:
-    'mongodb+srv://ricllima:sasa@cluster0-qrmll.mongodb.net/test?retryWrites=true'
+  uri: process.env.DB_URL
 }
 
 // iron33man%21%21%21
